@@ -18,6 +18,7 @@ public class Getfiles {
 		while(x==0) {
 			
 			/* The Try / Catch statement that writes errors and stack traces to the Marco.log file */
+			/* [1] This is for debugging and can be removed */
 			try {
 				
 				PrintWriter writer = new PrintWriter( new FileOutputStream( new File("C:/temp/Marco-error.log"), true));
@@ -69,6 +70,7 @@ public class Getfiles {
 							}
 				
 				}
+				/* [1] */
 				////////////////////////*ColdFusion 11*////////////////////////
 				
 				else if(new File("C:/ColdFusion11/cfusion/logs/coldfusion-out.log").exists()){
