@@ -4,21 +4,32 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 
 
 public class Getfiles {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
 		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+		Connection Conn = null;
+		String ConnString = "jdbc:mysql://localhost/sqldatabase";
+		String ConnUser = "User";
+		String ConnPass = "Pass123!";
 		/* The loop that has the program continue to send data */
 		try {
 		int x = 0;
 		while(x==0) {
 			
 			/* The Try / Catch statement that writes errors and stack traces to the Marco.log file */
-			/* [1] This is for debugging and can be removed */
 			try {
 				
 				PrintWriter writer = new PrintWriter( new FileOutputStream( new File("C:/temp/Marco-error.log"), true));
@@ -37,8 +48,28 @@ public class Getfiles {
 										System.out.println(d1);
 										
 										while(input.hasNext()){
-										
+											
 											System.out.println(input.nextLine());
+											
+											
+											try {
+												String Query = "INSERT INTO Marco_main (Server, Outlogs, TimeStamp) VALUES ('" + InetAddress.getLocalHost().getHostName() +"', '" + input.nextLine().toString() + "', NOW())";
+											    Conn = DriverManager.getConnection(ConnString, ConnUser, ConnPass);
+											    Statement stmt = Conn.createStatement();
+											    stmt.executeUpdate(Query);
+
+											    Conn.close();
+											    // Do something with the Connection
+
+											} catch (SQLException ex) {
+											    // handle any errors
+											    System.out.println("SQLException: " + ex.getMessage());
+											    System.out.println("SQLState: " + ex.getSQLState());
+											    System.out.println("VendorError: " + ex.getErrorCode());
+											}
+											
+											
+											
 										}
 										writeMain.println(d1);
 										writeMain.println(Thread.getAllStackTraces());
@@ -57,7 +88,7 @@ public class Getfiles {
 							/* The Try / Catch to pause the process for 1 minute per iteration */	
 							try {
 								System.gc();
-								Thread.sleep(60000);
+								Thread.sleep(3600000);
 								
 								
 								
@@ -70,7 +101,6 @@ public class Getfiles {
 							}
 				
 				}
-				/* [1] */
 				////////////////////////*ColdFusion 11*////////////////////////
 				
 				else if(new File("C:/ColdFusion11/cfusion/logs/coldfusion-out.log").exists()){
@@ -87,8 +117,28 @@ public class Getfiles {
 								System.out.println(d1);
 								
 								while(input.hasNext()){
-								
+									
 									System.out.println(input.nextLine());
+									
+									
+									try {
+										String Query = "INSERT INTO Marco_main (Server, Outlogs, TimeStamp) VALUES ('" + InetAddress.getLocalHost().getHostName() +"', '" + input.nextLine().toString() + "', NOW())";
+									    Conn = DriverManager.getConnection(ConnString, ConnUser, ConnPass);
+									    Statement stmt = Conn.createStatement();
+									    stmt.executeUpdate(Query);
+
+									    Conn.close();
+									    // Do something with the Connection
+
+									} catch (SQLException ex) {
+									    // handle any errors
+									    System.out.println("SQLException: " + ex.getMessage());
+									    System.out.println("SQLState: " + ex.getSQLState());
+									    System.out.println("VendorError: " + ex.getErrorCode());
+									}
+									
+									
+									
 								}
 								writeMain.println(d1);
 								writeMain.println(Thread.getAllStackTraces());
@@ -107,7 +157,7 @@ public class Getfiles {
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
 						System.gc();
-						Thread.sleep(60000);
+						Thread.sleep(3600000);
 						
 						
 						
@@ -136,9 +186,33 @@ public class Getfiles {
 								Date d1 = new Date();
 								System.out.println(d1);
 								
+								
 								while(input.hasNext()){
 								
 									System.out.println(input.nextLine());
+									
+									
+									try {
+										String Query = "INSERT INTO Marco_main (Server, Outlogs, TimeStamp) VALUES ('" + InetAddress.getLocalHost().getHostName() +"', '" + input.nextLine().toString() + "', NOW())";
+									    Conn = DriverManager.getConnection(ConnString, ConnUser, ConnPass);
+									    Statement stmt = Conn.createStatement();
+									    stmt.executeUpdate(Query);
+
+									    Conn.close();
+									    // Do something with the Connection
+
+									} catch (SQLException ex) {
+									    // handle any errors
+									    System.out.println("SQLException: " + ex.getMessage());
+									    System.out.println("SQLState: " + ex.getSQLState());
+									    System.out.println("VendorError: " + ex.getErrorCode());
+									   
+									} catch (NoSuchElementException ex){
+										System.out.println("End of line!");
+									}
+									
+									
+									
 								}
 								writeMain.println(d1);
 								writeMain.println(Thread.getAllStackTraces());
@@ -157,7 +231,7 @@ public class Getfiles {
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
 						System.gc();
-						Thread.sleep(60000);
+						Thread.sleep(3600000);
 						
 						
 						
@@ -187,8 +261,28 @@ public class Getfiles {
 								System.out.println(d1);
 								
 								while(input.hasNext()){
-								
+									
 									System.out.println(input.nextLine());
+									
+									
+									try {
+										String Query = "INSERT INTO Marco_main (Server, Outlogs, TimeStamp) VALUES ('" + InetAddress.getLocalHost().getHostName() +"', '" + input.nextLine().toString() + "', NOW())";
+									    Conn = DriverManager.getConnection(ConnString, ConnUser, ConnPass);
+									    Statement stmt = Conn.createStatement();
+									    stmt.executeUpdate(Query);
+
+									    Conn.close();
+									    // Do something with the Connection
+
+									} catch (SQLException ex) {
+									    // handle any errors
+									    System.out.println("SQLException: " + ex.getMessage());
+									    System.out.println("SQLState: " + ex.getSQLState());
+									    System.out.println("VendorError: " + ex.getErrorCode());
+									}
+									
+									
+									
 								}
 								writeMain.println(d1);
 								writeMain.println(Thread.getAllStackTraces());
@@ -207,7 +301,7 @@ public class Getfiles {
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
 						System.gc();
-						Thread.sleep(60000);
+						Thread.sleep(3600000);
 						
 						
 						
