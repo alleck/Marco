@@ -94,7 +94,6 @@ public class Getfiles {
 									
 							/* The Try / Catch to pause the process for 1 minute per iteration */	
 							try {
-								System.gc();
 								Thread.sleep(3600000);
 								
 								
@@ -165,7 +164,6 @@ public class Getfiles {
 							
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
-						System.gc();
 						Thread.sleep(3600000);
 						
 						
@@ -241,7 +239,6 @@ public class Getfiles {
 							
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
-						System.gc();
 						Thread.sleep(3600000);
 						
 						
@@ -312,7 +309,6 @@ public class Getfiles {
 							
 					/* The Try / Catch to pause the process for 1 minute per iteration */	
 					try {
-						System.gc();
 						Thread.sleep(3600000);
 						
 						
@@ -335,7 +331,6 @@ public class Getfiles {
 					writer.println("The log files defined for ColdFusion were not found!");
 					writer.println("\n");
 					writer.close();
-					System.gc();
 					System.exit(1);
 				}
 				
