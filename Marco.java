@@ -1,5 +1,6 @@
 package Marco;
 
+/* Imports for required libraries. Would not touch unless you understand Java well */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -32,14 +33,14 @@ public class Getfiles {
 		try {
 		int x = 0;
 		while(x==0) {
-			
-                    /* <strictlyTestScript> */
 
 			/* The Try / Catch statement that writes errors and stack traces to the Marco.log file */
 			try {
 				
 				PrintWriter writer = new PrintWriter( new FileOutputStream( new File("C:/temp/Marco-error.log"), true));
 				PrintWriter writeMain = new PrintWriter( new FileOutputStream( new File("C:/temp/Marco-main.log"), true));
+
+                            /* <strictlyTestScript> */
 				if(new File("C:/Users/Alleck/Desktop/X-Plane 10/MemoryLog.txt").exists()){
 					
 							File newfile = new File( "C:/Users/Alleck/Desktop/X-Plane 10/MemoryLog.txt" );
@@ -111,7 +112,6 @@ public class Getfiles {
                            /* </strictlyTestScript> */
 
 				/* <ColdFusion 11> */
-				
 				else if(new File("C:/ColdFusion11/cfusion/logs/coldfusion-out.log").exists()){
 					
 					File newfile = new File( "C:/ColdFusion11/cfusion/logs/coldfusion-out.log" );
@@ -182,7 +182,7 @@ public class Getfiles {
 
                             /* </ColdFusion 11> */
 				
-				/////////////////////*ColdFusion 10*////////////////////////
+				/* <ColdFusion 10>*/
 				
 				else if(new File("C:/ColdFusion10/cfusion/logs/coldfusion-out.log").exists()){
 					
@@ -255,8 +255,9 @@ public class Getfiles {
 					}
 		
 				}
+                           /* </ColdFusion 10>*/
 				
-				////////////////////////*ColdFusion 9*////////////////////////
+				/* <ColdFusion 9> */
 				
 				else if(new File("C:/ColdFusion9/logs/application.log").exists()){
 					
@@ -325,7 +326,10 @@ public class Getfiles {
 						System.exit(1);
 					}
 		
-				} else {
+				} 
+
+                            /* </ColdFusion 9> */
+                            else {
 					Date d1 = new Date();
 					writer.println(d1);
 					writer.println("The log files defined for ColdFusion were not found!");
