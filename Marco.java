@@ -19,16 +19,22 @@ import java.sql.Statement;
 public class Getfiles {
 
 	public static void main(String[] args) throws UnknownHostException {
+              /* Lowers the priority of the thread, to cause the "current" least possible load on the machine it is running on. */
 		Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+
+              /* Connection initialization to a MySQL database is defined here below */
 		Connection Conn = null;
 		String ConnString = "jdbc:mysql://localhost/sqldatabase";
 		String ConnUser = "User";
 		String ConnPass = "Pass123!";
+
 		/* The loop that has the program continue to send data */
 		try {
 		int x = 0;
 		while(x==0) {
 			
+                    /* <strictlyTestScript> */
+
 			/* The Try / Catch statement that writes errors and stack traces to the Marco.log file */
 			try {
 				
@@ -101,7 +107,10 @@ public class Getfiles {
 							}
 				
 				}
-				////////////////////////*ColdFusion 11*////////////////////////
+
+                           /* </strictlyTestScript> */
+
+				/* <ColdFusion 11> */
 				
 				else if(new File("C:/ColdFusion11/cfusion/logs/coldfusion-out.log").exists()){
 					
@@ -170,6 +179,8 @@ public class Getfiles {
 					}
 		
 				}
+
+                            /* </ColdFusion 11> */
 				
 				/////////////////////*ColdFusion 10*////////////////////////
 				
